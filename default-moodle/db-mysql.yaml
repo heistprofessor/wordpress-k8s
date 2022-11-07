@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-db
+  labels:
+    app: moodle
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: moodle
+    tier: mysql
+  clusterIP: None
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-db
+  labels:
+    app: moodle
+spec:
+  selector:
+    matchLabels:
+           app: moodle
+           tier: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+           labels:
+              app: moodle
+              tier: mysql
+    spec:
+           containers:
+           - image: mysql:5.6
+             name: mysql
+             env:
+             - name: MYSQL_ROOT_PASSWORD
+               valueFrom:
+                  secretKeyRef:
+                       name: mo-db-secrets
+                       key: MYSQL_ROOT_PASSWORD
+             volumeMounts:
+             - mountPath: /var/lib/mysql
+               name: mysql-data
+             ports:
+             - containerPort: 3306
+               name: mysql
+           volumes:
+           - name: mysql-data
+             persistentVolumeClaim:
+                  claimName: mysql-volume
