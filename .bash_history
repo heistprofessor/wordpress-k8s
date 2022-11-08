@@ -1,54 +1,3 @@
-exit
-kops delete cluster jeet.k8s --state=s3://jeet.k8s
-kops delete cluster jeet.k8s --state=s3://jeet.k8s --yes
-kops create cluster --name jeet.k8s --state=s3://jeet.k8s --zones=us-east-1a --node-count=1 --node-size=t3.micro --master-size=t3.micro --ssh-public-key ~/.ssh/id_rsa.pub --yes --dns-zone=jeet.k8s --dns private --subnets=subnet-090791d972d4bdcd2 --node-security-groups=sg-0ba47d96e2443721a --key-name=my-demo-key
-ls
-cd .ssh
-ls
-vi my-demo-key
-cd
-ls
-pwd
-cd .ssh
-mv my-demo-key mu-demo-key.pem
-cd
-kops create cluster --name jeet.k8s --state=s3://jeet.k8s --zones=us-east-1a --node-count=1 --node-size=t3.micro --master-size=t3.micro --ssh-public-key ~/.ssh/id_rsa.pub --yes --dns-zone=jeet.k8s --dns private --subnets=subnet-090791d972d4bdcd2 --node-security-groups=sg-0ba47d96e2443721a --ssh-public-key=/home/ec2-user/.ssh/my-demo-key.pem
-kops create cluster --name jeet.k8s --state=s3://jeet.k8s --zones=us-east-1a --node-count=1 --node-size=t3.micro --master-size=t3.micro --ssh-public-key ~/.ssh/id_rsa.pub --yes --dns-zone=jeet.k8s --dns private --subnets=subnet-090791d972d4bdcd2 --node-security-groups=sg-0ba47d96e2443721a --ssh-public-key=/home/ec2-user/.ssh/mu-demo-key.pem
-cd .ssh
-ls
-mv mu-demo-key.pem my-demo-key.ppk
-kops create cluster --name jeet.k8s --state=s3://jeet.k8s --zones=us-east-1a --node-count=1 --node-size=t3.micro --master-size=t3.micro --ssh-public-key ~/.ssh/id_rsa.pub --yes --dns-zone=jeet.k8s --dns private --subnets=subnet-090791d972d4bdcd2 --node-security-groups=sg-0ba47d96e2443721a --ssh-public-key=/home/ec2-user/.ssh/my-demo-key.ppk
-kops delete cluster jeet.k8s --yes
-kops delete cluster jeet.k8s --yes --state=s3://jeet.k8s
-kops create cluster --name jeet.k8s --state=s3://jeet.k8s --zones=us-east-1a --node-count=1 --node-size=t3.micro --master-size=t3.micro --ssh-public-key ~/.ssh/id_rsa.pub --yes --dns-zone=jeet.k8s --dns private --subnets=subnet-090791d972d4bdcd2 --node-security-groups=sg-0ba47d96e2443721a --ssh-public-key=/home/ec2-user/.ssh/my-demo-key.ppk
-kops delete cluster jeet.k8s --yes --state=s3://jeet.k8s
-kops create cluster --name jeet.k8s --state=s3://jeet.k8s --zones=us-east-1a --node-count=1 --node-size=t3.micro --master-size=t3.micro --ssh-public-key ~/.ssh/id_rsa.pub --yes --dns-zone=jeet.k8s --dns private --subnets=subnet-090791d972d4bdcd2 --node-security-groups=sg-0ba47d96e2443721a --ssh-public-key
-kops create cluster --name jeet.k8s --state=s3://jeet.k8s --zones=us-east-1a --node-count=1 --node-size=t3.micro --master-size=t3.micro --ssh-public-key ~/.ssh/id_rsa.pub --yes --dns-zone=jeet.k8s --dns private --subnets=subnet-090791d972d4bdcd2 --node-security-groups=sg-0ba47d96e2443721a --ssh-public-key=my-demo-key
-kops create cluster --name jeet.k8s --state=s3://jeet.k8s --zones=us-east-1a --node-count=1 --node-size=t3.micro --master-size=t3.micro --ssh-public-key ~/.ssh/id_rsa.pub --yes --dns-zone=jeet.k8s --dns private --subnets=subnet-090791d972d4bdcd2 --node-security-groups=sg-0ba47d96e2443721a --ssh-public-key=my-demo-key.pem
-kops create cluster --name jeet.k8s --state=s3://jeet.k8s --zones=us-east-1a --node-count=1 --node-size=t3.micro --master-size=t3.micro --ssh-public-key ~/.ssh/id_rsa.pub --yes --dns-zone=jeet.k8s --dns private --subnets=subnet-090791d972d4bdcd2 --node-security-groups=sg-0ba47d96e2443721a --ssh-public-key=my-demo-key.ppk
-kops delete cluster jeet.k8s --yes --state=s3://jeet.k8s
-kops create cluster --name jeet.k8s --state=s3://jeet.k8s --zones=us-east-1a --node-count=1 --node-size=t3.micro --master-size=t3.micro --ssh-public-key ~/.ssh/id_rsa.pub --yes --dns-zone=jeet.k8s --dns private --subnets=subnet-090791d972d4bdcd2 --node-security-groups=sg-0ba47d96e2443721a --ssh-public-key my-demo-key
-kops create cluster --name jeet.k8s --state=s3://jeet.k8s --zones=us-east-1a --node-count=1 --node-size=t3.micro --master-size=t3.micro --ssh-public-key ~/.ssh/id_rsa.pub --yes --dns-zone=jeet.k8s --dns private --subnets=subnet-090791d972d4bdcd2 --node-security-groups=sg-0ba47d96e2443721a --ssh-public-key my-demo-key.pem
-kops create cluster --name jeet.k8s --state=s3://jeet.k8s --zones=us-east-1a --node-count=1 --node-size=t3.micro --master-size=t3.micro --ssh-public-key ~/.ssh/id_rsa.pub --yes --dns-zone=jeet.k8s --dns private --subnets=subnet-090791d972d4bdcd2 --node-security-groups=sg-0ba47d96e2443721a --ssh-public-key my-demo-key.ppk
-ls
-kops create cluster --name jeet.k8s --state=s3://jeet.k8s --zones=us-east-1a --node-count=1 --node-size=t3.micro --master-size=t3.micro --ssh-public-key ~/.ssh/id_rsa.pub --yes --dns-zone=jeet.k8s --dns private --subnets=subnet-090791d972d4bdcd2 --node-security-groups=sg-0ba47d96e2443721a --ssh-public-key=id_rsa.pub
-kops delete cluster jeet.k8s --yes --state=s3://jeet.k8s
-kops create cluster --name jeet.k8s --state=s3://jeet.k8s --zones=us-east-1a --node-count=1 --node-size=t3.micro --master-size=t3.micro --ssh-public-key ~/.ssh/id_rsa.pub --yes --dns-zone=jeet.k8s --dns private --subnets=subnet-090791d972d4bdcd2 --node-security-groups=sg-0ba47d96e2443721a --ssh-public-key=id_rsa.pub
-kops validate cluster --state=s3://jeet.k8s --wait 6m
-export KOPS_STATE_STORE=s3://jeet.k8s
-kubectl create namespace moodle
-cd
-ls
-kubectl create -f moodle-appl/
-kubectl get all --namespace=moodle
-kubectl exec -it mysql-sts-0 --namespace=moodle -- bash
-kubectl get all --namespace=moodle
-kubectl exec -it moodle-dep-584d4b586c-85swv --namespace=moodle -- bash
-kubectl get all --namespace=moodle
-kubectl exec -it moodle-dep-584d4b586c-85swv --namespace=moodle -- bash
-kubectl get all --namespace=moodle
-kubectl exec -it moodle-dep-584d4b586c-85swv --namespace=moodle -- bash
-kubectl get all --namespace=moodle
 cd moodle-appl/
 kubectl delete -f hor-moodle.yaml 
 vi hor-moodle.yaml 
@@ -998,3 +947,54 @@ kubectl get all --namespace=wordpress
 kubectl logs wordpress-86cd99db98-p4w7c --namespace=wordpress
 kubectl logs mysql-deploy-0 --namespace=wordpress
 exit
+ls
+cd wordpress-appl/
+ls
+cd ..
+rm awscli-bundle
+rmdir awscli-bundle
+rmdir -rf awscli-bundle
+rmdir -r awscli-bundle
+rmdir -f awscli-bundle
+yum install git
+sudo yum install git
+ls
+git init
+ls
+git commit -m "first"
+gid add .
+git add .
+gir commit -m "first"
+git commit -m "first"
+git remote add origin https://github.com/heistprofessor/wordpress-k8s.git
+git push -u origin main
+git branch -M main
+git push -u origin main
+cd wordpress-appl/
+ls
+cat LB-wordpress.yaml 
+rm LB-wordpress.yaml 
+kubectl delete -f wordpress.yaml 
+kubectl delete -f deploy-mysql.yaml 
+kubectl get all --namespace=wordpress
+kubectl delete svc wordpress --namespace=wordpress
+ls
+cd wordpress-appl/
+ls
+vi deploy-mysql.yaml 
+kubectl create deploy-mysql.yaml 
+kubectl create -f deploy-mysql.yaml 
+kubectl get all --namespace=wordpress
+kubectl exec -it mysql-deploy-0 --namespace=wordpress -- bash
+ls
+kubectl create -f wordpress.yaml 
+kubectl get all --namespace=wordpress
+kubectl expose deployment wordpress --type="LoadBalancer" --port 80 --namespace=wordpress
+kubectl get all --namespace=wordpress
+kubectl create -f wordpress.yaml 
+ls
+kubectl exec -it wordpress-86cd99db98-hmh8m --namespace=wordpress -- bash
+ls
+kubectl get all
+kubectl get all --namespace=wordpress
+kops delete cluster jeet.k8s --state=s3://jeet.k8s --yes
